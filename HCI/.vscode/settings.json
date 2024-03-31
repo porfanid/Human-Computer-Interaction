@@ -51,5 +51,7 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "HCI.sln"
+    "dotnet.defaultSolution": "HCI.sln",
+    "editor.tabCompletion": "on",
+    "diffEditor.codeLens": true
 }

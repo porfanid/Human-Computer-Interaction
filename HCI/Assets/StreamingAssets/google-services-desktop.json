@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "805307977609",
+    "project_id": "human-computer-int",
+    "storage_bucket": "human-computer-int.appspot.com",
+    "firebase_url": "https://human-computer-int.firebaseio.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:805307977609:android:974805761ab6e82b18db58",
+        "android_client_info": {
+          "package_name": "gr.net.orfanidis.hci"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRx2DJSHANpbZGV1r4-cAv_71Ahu_L74A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
