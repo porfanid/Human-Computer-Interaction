@@ -192,7 +192,7 @@
                     "name": "",
                     "id": "686c8610-6bb1-4895-89fb-ae8333e8d257",
                     "path": "<Mouse>/delta",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Look",
