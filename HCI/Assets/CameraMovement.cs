@@ -28,7 +28,6 @@ public class CameraMovement : MonoBehaviour
 
     void OnFire()
     {
-        
             RaycastHit[] hits;
             Camera c = GetComponent<Camera>();
             Ray ray = c.ScreenPointToRay(Input.mousePosition);
@@ -86,12 +85,12 @@ public class CameraMovement : MonoBehaviour
         right.y = 0.0f; // Ignore vertical component for movement on the XZ plane
         right.Normalize();
 
-        Vector3 movement = (forward * movementY + right * movementX) * moveSpeed * Time.fixedDeltaTime;
+        Vector3 movement = (forward * movementY + right * movementX) * (moveSpeed * Time.fixedDeltaTime);
 
         // Apply movement to the object's position using transform
         transform.Translate(movement, Space.World);
 
-        Vector3 rotation = new Vector3(rotateY, rotateX, 0.0f) * mouseSensitivity * Time.fixedDeltaTime;
+        Vector3 rotation = new Vector3(rotateY, rotateX, 0.0f) * (mouseSensitivity * Time.fixedDeltaTime);
         transform.eulerAngles-=rotation;
     }
 }
