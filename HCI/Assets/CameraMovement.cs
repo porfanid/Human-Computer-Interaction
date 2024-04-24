@@ -6,24 +6,30 @@ public class CameraMovement : MonoBehaviour
 {
     public float moveSpeed = 200f;   // Speed of camera movement
     public float mouseSensitivity = 10f; // Mouse sensitivity
-    private Rigidbody rb;
 
-    private float movementX;
-    private float movementY;
+    private float _movementX;
+    private float _movementY;
 
-    private float rotateX;
-    private float rotateY;
+    private float _rotateX;
+    private float _rotateY;
+    private Rigidbody _rigidbody;
     
 
-    void Start(){
-        rb = GetComponent <Rigidbody>();
+    void Start()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+        _rigidbody.useGravity = false;
     }
+    
+    
+    
+    
 
     void OnMove (InputValue movementValue)
     {
         Vector2 movementVector = movementValue.Get<Vector2>();
-        movementX = movementVector.x; 
-        movementY = movementVector.y; 
+        _movementX = movementVector.x; 
+        _movementY = movementVector.y; 
     }
 
     void OnFire()
@@ -55,7 +61,6 @@ public class CameraMovement : MonoBehaviour
                         nearestDistance = distanceToObject;
                     }
                 }
-
                 // Check if a nearest object was found
                 if (nearestObject != null)
                 {
@@ -65,14 +70,13 @@ public class CameraMovement : MonoBehaviour
                     // Example: nearestObject.GetComponent<Renderer>().material.color = Color.red;
                 }
             }
-        
     }
 
     void OnLook (InputValue movementValue)
     {
         Vector2 movementVector = movementValue.Get<Vector2>();
-        rotateX = movementVector.x; 
-        rotateY = movementVector.y;
+        _rotateX = movementVector.x; 
+        _rotateY = movementVector.y;
     }
 
     private void FixedUpdate() 
@@ -85,12 +89,21 @@ public class CameraMovement : MonoBehaviour
         right.y = 0.0f; // Ignore vertical component for movement on the XZ plane
         right.Normalize();
 
-        Vector3 movement = (forward * movementY + right * movementX) * (moveSpeed * Time.fixedDeltaTime);
+        Vector3 movement = (forward * _movementY + right * _movementX) * (moveSpeed * Time.fixedDeltaTime);
+        
+        Vector3 targetPosition = transform.position + movement;
+
+        // Clamp the target position within the desired limits
+        targetPosition.x = Mathf.Clamp(targetPosition.x, -450f, 450f);
+        targetPosition.z = Mathf.Clamp(targetPosition.z, -450f, 450f);
+
+        // Apply the clamped movement to the object's position using transform
+        transform.position = targetPosition;
 
         // Apply movement to the object's position using transform
         transform.Translate(movement, Space.World);
 
-        Vector3 rotation = new Vector3(rotateY, rotateX, 0.0f) * (mouseSensitivity * Time.fixedDeltaTime);
+        Vector3 rotation = new Vector3(_rotateY, _rotateX, 0.0f) * (mouseSensitivity * Time.fixedDeltaTime);
         transform.eulerAngles-=rotation;
     }
 }
