@@ -19,10 +19,24 @@ public class CameraMovement : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.useGravity = false;
+        _rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        _rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
     }
     
     
-    
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("got a wall");
+        // Check if the collision is with a wall (considering the wall has no Rigidbody)
+        
+            Rigidbody rb = GetComponent<Rigidbody>();
+
+            Vector3 collisionNormal = collision.contacts[0].normal;
+            float forceMagnitude = 500f;
+            Vector3 oppositeForce = -collisionNormal * forceMagnitude;
+            rb.AddForce(oppositeForce, ForceMode.Impulse);
+        
+    }
     
 
     void OnMove (InputValue movementValue)
@@ -90,15 +104,6 @@ public class CameraMovement : MonoBehaviour
         right.Normalize();
 
         Vector3 movement = (forward * _movementY + right * _movementX) * (moveSpeed * Time.fixedDeltaTime);
-        
-        Vector3 targetPosition = transform.position + movement;
-
-        // Clamp the target position within the desired limits
-        targetPosition.x = Mathf.Clamp(targetPosition.x, -450f, 450f);
-        targetPosition.z = Mathf.Clamp(targetPosition.z, -450f, 450f);
-
-        // Apply the clamped movement to the object's position using transform
-        transform.position = targetPosition;
 
         // Apply movement to the object's position using transform
         transform.Translate(movement, Space.World);
