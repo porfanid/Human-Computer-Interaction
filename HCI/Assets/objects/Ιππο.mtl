@@ -1,0 +1,13 @@
+# Created by Polycam
+# object name: Ιππο
+newmtl Ιππο_0
+Ka 0.000 0.000 0.000
+Kd 1.000 1.000 1.000
+Ks 0.000 0.000 0.000
+Tr 0.000000
+illum 1
+Ns 1.000000
+map_Kd Ιππο_2_BJkFV9gd.jpg
+normal Ιππο_0_BJkFV9gd.jpg
+map_ao Ιππο_1_BJkFV9gd.jpg
+map_Pr Ιππο_3_BJkFV9gd.jpg

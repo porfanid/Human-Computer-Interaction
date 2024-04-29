@@ -1,0 +1,13 @@
+# Created by Polycam
+# object name: Αρ.192
+newmtl Αρ.192_0
+Ka 0.000 0.000 0.000
+Kd 1.000 1.000 1.000
+Ks 0.000 0.000 0.000
+Tr 0.000000
+illum 1
+Ns 1.000000
+map_Kd Αρ.192_2_jFzf1LOT.jpg
+normal Αρ.192_0_jFzf1LOT.jpg
+map_ao Αρ.192_1_jFzf1LOT.jpg
+map_Pr Αρ.192_3_jFzf1LOT.jpg

@@ -1,0 +1,13 @@
+# Created by Polycam
+# object name: Αριστερα αριστερα μπροστά 
+newmtl Αριστερα αριστερα μπροστά _0
+Ka 0.000 0.000 0.000
+Kd 1.000 1.000 1.000
+Ks 0.000 0.000 0.000
+Tr 0.000000
+illum 1
+Ns 1.000000
+map_Kd Αριστερα αριστερα μπροστά _2_IAcJgmHY.jpg
+normal Αριστερα αριστερα μπροστά _0_IAcJgmHY.jpg
+map_ao Αριστερα αριστερα μπροστά _1_IAcJgmHY.jpg
+map_Pr Αριστερα αριστερα μπροστά _3_IAcJgmHY.jpg

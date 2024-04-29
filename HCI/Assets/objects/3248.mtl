@@ -1,0 +1,13 @@
+# Created by Polycam
+# object name: 3248
+newmtl 3248_0
+Ka 0.000 0.000 0.000
+Kd 1.000 1.000 1.000
+Ks 0.000 0.000 0.000
+Tr 0.000000
+illum 1
+Ns 1.000000
+map_Kd 3248_2_VRT5sDgF.jpg
+normal 3248_0_VRT5sDgF.jpg
+map_ao 3248_1_VRT5sDgF.jpg
+map_Pr 3248_3_VRT5sDgF.jpg

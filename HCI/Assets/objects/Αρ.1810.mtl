@@ -1,0 +1,13 @@
+# Created by Polycam
+# object name: Αρ.1810
+newmtl Αρ.1810_0
+Ka 0.000 0.000 0.000
+Kd 1.000 1.000 1.000
+Ks 0.000 0.000 0.000
+Tr 0.000000
+illum 1
+Ns 1.000000
+map_Kd Αρ.1810_2_FKwBFttW.jpg
+normal Αρ.1810_0_FKwBFttW.jpg
+map_ao Αρ.1810_1_FKwBFttW.jpg
+map_Pr Αρ.1810_3_FKwBFttW.jpg

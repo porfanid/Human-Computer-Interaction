@@ -1,0 +1,13 @@
+# Created by Polycam
+# object name: Αρ.387
+newmtl Αρ.387_0
+Ka 0.000 0.000 0.000
+Kd 1.000 1.000 1.000
+Ks 0.000 0.000 0.000
+Tr 0.000000
+illum 1
+Ns 1.000000
+map_Kd Αρ.387_2_9mgfMx85.jpg
+normal Αρ.387_0_9mgfMx85.jpg
+map_ao Αρ.387_1_9mgfMx85.jpg
+map_Pr Αρ.387_3_9mgfMx85.jpg
