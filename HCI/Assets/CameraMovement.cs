@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class CameraMovement : MonoBehaviour
 {
     public float moveSpeed = 200f;   // Speed of camera movement
-    public float mouseSensitivity = 10f; // Mouse sensitivity
+    public float mouseSensitivity = 1f; // Mouse sensitivity
 
     private float _movementX;
     private float _movementY;
@@ -13,6 +13,8 @@ public class CameraMovement : MonoBehaviour
     private float _rotateX;
     private float _rotateY;
     private Rigidbody _rigidbody;
+    
+    private bool isCollidingWithWall = false;
     
 
     void Start()
@@ -26,16 +28,22 @@ public class CameraMovement : MonoBehaviour
     
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("got a wall");
-        // Check if the collision is with a wall (considering the wall has no Rigidbody)
-        
-            Rigidbody rb = GetComponent<Rigidbody>();
+        if (collision.gameObject.CompareTag("wall"))
+        {
+            // Stop movement when colliding with a wall
+            isCollidingWithWall = true;
+            _rigidbody.velocity = Vector3.zero;
+            _rigidbody.angularVelocity = Vector3.zero;
+        }
+    }
 
-            Vector3 collisionNormal = collision.contacts[0].normal;
-            float forceMagnitude = 500f;
-            Vector3 oppositeForce = -collisionNormal * forceMagnitude;
-            rb.AddForce(oppositeForce, ForceMode.Impulse);
-        
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("wall"))
+        {
+            // Resume movement when no longer colliding with a wall
+            isCollidingWithWall = false;
+        }
     }
     
 
@@ -93,7 +101,7 @@ public class CameraMovement : MonoBehaviour
         _rotateY = movementVector.y;
     }
 
-    private void FixedUpdate() 
+    private void FixedUpdate()
     {
         Vector3 forward = transform.forward;
         forward.y = 0.0f; // Ignore vertical component for movement on the XZ plane
@@ -103,12 +111,14 @@ public class CameraMovement : MonoBehaviour
         right.y = 0.0f; // Ignore vertical component for movement on the XZ plane
         right.Normalize();
 
-        Vector3 movement = (forward * _movementY + right * _movementX) * (moveSpeed * Time.fixedDeltaTime);
+        Vector3 movement = (forward * _movementY + right * _movementX) * (moveSpeed);
 
         // Apply movement to the object's position using transform
-        transform.Translate(movement, Space.World);
+        _rigidbody.AddForce(movement, ForceMode.Force);
 
-        Vector3 rotation = new Vector3(_rotateY, _rotateX, 0.0f) * (mouseSensitivity * Time.fixedDeltaTime);
-        transform.eulerAngles-=rotation;
+        Vector3 rotation = new Vector3(-_rotateY, _rotateX, 0.0f) * (mouseSensitivity);
+
+        // Apply rotational force to Rigidbody using torque
+        _rigidbody.AddTorque(rotation, ForceMode.Impulse);
     }
 }
