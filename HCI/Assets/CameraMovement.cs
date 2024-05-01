@@ -17,7 +17,7 @@ public class CameraMovement : MonoBehaviour
     private bool isCollidingWithWall = false;
     
 
-    void Start()
+    private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.useGravity = false;
@@ -54,7 +54,7 @@ public class CameraMovement : MonoBehaviour
         _movementY = movementVector.y; 
     }
 
-    void OnFire()
+    private void OnFire()
     {
             RaycastHit[] hits;
             Camera c = GetComponent<Camera>();
@@ -119,6 +119,6 @@ public class CameraMovement : MonoBehaviour
         Vector3 rotation = new Vector3(-_rotateY, _rotateX, 0.0f) * (mouseSensitivity);
 
         // Apply rotational force to Rigidbody using torque
-        _rigidbody.AddTorque(rotation, ForceMode.Impulse);
+        _rigidbody.AddTorque(rotation, ForceMode.Force);
     }
 }
