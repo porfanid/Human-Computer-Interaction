@@ -33,7 +33,7 @@ public class NewBehaviourScript : MonoBehaviour
         _rotateX = movementVector.x; 
         _rotateY = movementVector.y;
         // Calculate rotation amount based on input
-        float rotationAmount = _rotateX * 200 * Time.fixedDeltaTime;
+        float rotationAmount = _rotateX * mouseSensitivity * Time.fixedDeltaTime;
         // Rotate the player around the y-axis
         transform.Rotate(Vector3.up, rotationAmount);
     }
