@@ -1,18 +1,32 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
+using UnityEngine.UIElements;
+using Button = UnityEngine.UI.Button;
+using Image = UnityEngine.UI.Image;
 
 public class NewBehaviourScript : MonoBehaviour
 {
     
     public float moveSpeed = 200f;   // Speed of camera movement
     public float mouseSensitivity = 1f; // Mouse sensitivity
+    
+    public Image c;
+
+    public Button button;
+    public TMP_Text info;
+    public Camera camera;
 
     private Vector2 _movement;
 
     private float _rotateX;
     private float _rotateY;
+
+    private Dictionary<string, string> intel;
     
     void OnMove(InputValue movementValue)
     {
@@ -25,6 +39,75 @@ public class NewBehaviourScript : MonoBehaviour
         // Normalize the movement vector
         _movement = movementVector;
     }
+
+
+    private void OnFire()
+    {
+        RaycastHit[] hits;
+        Vector2 screenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
+        Ray ray = camera.ScreenPointToRay(screenCenter);
+
+        // Perform the raycast and get all hits
+        hits = Physics.RaycastAll(ray);
+        if (hits.Length > 0)
+        {
+            // Initialize variables to track nearest object
+            GameObject nearestObject = null;
+            float nearestDistance = Mathf.Infinity;
+
+            // Loop through all hits to find the nearest valid object
+            foreach (var hit in hits)
+            {
+                GameObject hitObject = hit.collider.gameObject;
+                // Check if the hit object is closer than the current nearest object
+                float distanceToObject = Vector3.Distance(transform.position, hitObject.transform.position);
+                if (distanceToObject < nearestDistance)
+                {
+                    nearestObject = hitObject;
+                    nearestDistance = distanceToObject;
+                }
+            }
+
+            // Check if a nearest object was found
+            if (nearestObject != null)
+            {
+                c.gameObject.SetActive(true);
+                info.gameObject.SetActive(true);
+                button.gameObject.SetActive(true);
+
+                try
+                {
+                    // Set the information text from the dictionary
+                    info.gameObject.SetActive(true);
+                    info.SetText(intel[nearestObject.name]);
+                    Debug.Log("Nearest object: " + nearestObject.name);
+                }
+                catch (KeyNotFoundException)
+                {
+                    // Handle case where the object's name is not in the dictionary
+                    info.SetText("The object is not in the database");
+                    Debug.LogWarning("The object is not in the database: " + nearestObject.name);
+                }
+            }
+            else
+            {
+                // Handle case where no nearest object was found
+                c.gameObject.SetActive(true);
+                info.gameObject.SetActive(true);
+                button.gameObject.SetActive(true);
+                info.SetText("No Object has been detected");
+            }
+        }
+        else
+        {
+            // Handle case where no objects were hit by the raycast
+            c.enabled = true;
+            info.enabled = true;
+            info.SetText("No Object has been detected");
+            Debug.Log("No objects detected by the raycast");
+        }
+    }
+
 
     
     void OnLook(InputValue movementValue)
@@ -42,7 +125,8 @@ public class NewBehaviourScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        intel = new Dictionary<string, string>();
+        intel["1571"] = "Hello World";
     }
     
     private void HandleMovement(Vector2 inputVector) {
@@ -106,28 +190,5 @@ public class NewBehaviourScript : MonoBehaviour
         float playerHeight = 0.3f;
         
         HandleMovement(_movement);
-
-        /*
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, moveDir, playerRadius))
-        {
-            // If the raycast hits something, draw a ray from the origin to the hit point
-            Debug.Log("Drawing success ray");
-            Debug.DrawRay(transform.position, moveDir, Color.red);
-        }
-        else
-        {
-            // If the raycast doesn't hit anything, draw a ray to the maximum distance
-            Debug.Log("Drawing fail ray");
-            Debug.DrawRay(transform.position, moveDir, Color.red);
-        }
-
-        // If cannot move, reset movement vector
-        if (true)
-        {
-            Vector3 movementVector3 = _movement*moveSpeed;
-            transform.position += movementVector3;
-        }
-        */
     }
 }
