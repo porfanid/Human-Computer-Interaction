@@ -5,7 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61f95ec5-5d48-4566-bcd1-10449a8d3273" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/MuseumArtifacts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/MuseumArtifacts/test.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/MuseumArtifacts/untitled.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/MuseumArtifacts/untitled.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Museum.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/museum4.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/museum4.fbx.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HumanComputerInteraction/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HumanComputerInteraction/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Museum.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/museum.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/museum.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MuseumArtifacts/test.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +111,9 @@
       <workItem from="1715177918647" duration="1842000" />
       <workItem from="1715180293813" duration="2166000" />
       <workItem from="1715614533316" duration="13000" />
-      <workItem from="1715614590400" duration="3082000" />
+      <workItem from="1715614590400" duration="4108000" />
+      <workItem from="1715687218657" duration="71000" />
+      <workItem from="1715691999413" duration="11608000" />
     </task>
     <servers />
   </component>
