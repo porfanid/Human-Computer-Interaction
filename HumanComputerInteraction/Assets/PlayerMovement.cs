@@ -71,40 +71,20 @@ public class NewBehaviourScript : MonoBehaviour
             // Check if a nearest object was found
             if (nearestObject != null)
             {
-                c.gameObject.SetActive(true);
-                info.gameObject.SetActive(true);
-                button.gameObject.SetActive(true);
 
                 try
                 {
                     // Set the information text from the dictionary
-                    info.gameObject.SetActive(true);
                     info.SetText(intel[nearestObject.name]);
+                    c.gameObject.SetActive(true);
+                    button.gameObject.SetActive(true);
+                    info.gameObject.SetActive(true);
                     Debug.Log("Nearest object: " + nearestObject.name);
                 }
                 catch (KeyNotFoundException)
                 {
-                    // Handle case where the object's name is not in the dictionary
-                    info.SetText("The object is not in the database");
-                    Debug.LogWarning("The object is not in the database: " + nearestObject.name);
                 }
             }
-            else
-            {
-                // Handle case where no nearest object was found
-                c.gameObject.SetActive(true);
-                info.gameObject.SetActive(true);
-                button.gameObject.SetActive(true);
-                info.SetText("No Object has been detected");
-            }
-        }
-        else
-        {
-            // Handle case where no objects were hit by the raycast
-            c.enabled = true;
-            info.enabled = true;
-            info.SetText("No Object has been detected");
-            Debug.Log("No objects detected by the raycast");
         }
     }
 
@@ -126,7 +106,7 @@ public class NewBehaviourScript : MonoBehaviour
     void Start()
     {
         intel = new Dictionary<string, string>();
-        intel["1571"] = "Hello World";
+        intel["1571"] = "Εκμαγείο μαρμάρινης κεφαλής της θεάς Ήρας. \nΆργος, γύρω στο 420 π.Χ.\n\nΉρα, θεά του γάμου, της έντιμης γυναίκας, της μητέρας και της γέννας. Προστάτης των εγγάμων γυναικών και της οικογένειας.\nΠερισσότερο από όλους τους άλλους θεούς η θεά Ήρα μας θυμίζει ότι μέσα μας υπάρχουν πάντα και οι δύο πλευρές, η φωτεινή και η \nσκοτεινή, συνδεδεμένες όπως και η χαρά και ο πόνος πλήρως με την ζωή. Η Ήρα αντιπροσωπεύει μια ολοκληρωμένη ζωή. Παρά τις \nσυχνά αντίξοες συνθήκες του γάμου της, επιβεβαιώνει ότι μόνο η φρόνηση και η σύνεση είναι αυτές που μας επιτρέπουν να επιτύχουμε \nτους στόχους που έχουμε επιλέξει και έτσι να κρατήσουμε τον γάμο και την οικογένειά μας ενωμένους.\n\nΕ.Α.Μ. αρ. 1571. Δωρεά: Π. & Ε. Αγγελοπούλου, βάση Ν. Μπούντα.\n\n\nCast replica of a marble head of the Goddess Hera (Juno). \nArgos, c. 420 В.С.\n\nGoddess of marriage, motherhood and birth. Protectress of married women and family. More than any of the other Greek Goddesses, \nthe Goddess Hera reminds us that there is both light and dark within each of us and that joy and pain are inextricably linked in \nlife. The Greek Goddess Hera represents the fullness of life and affirms that we can use our own wisdam in the pursuit of any goal we choose\n\nΝ.Α.Μ. no 1571 Donation P & H Angelopoulos, pillar N. Bouda";
     }
     
     private void HandleMovement(Vector2 inputVector) {
