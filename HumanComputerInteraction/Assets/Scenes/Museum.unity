@@ -1475,15 +1475,15 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
+  m_BackGroundColor: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 0}
+  m_projectionMatrixMode: 2
   m_GateFitMode: 2
   m_FOVAxisMode: 1
   m_Iso: 200
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 50
+  m_FocalLength: 24.017374
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -1498,7 +1498,7 @@ Camera:
     height: 1
   near clip plane: 0.5
   far clip plane: 1000
-  field of view: 56.224384
+  field of view: 53.09694
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -2853,6 +2853,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 23003510ae3aeb84e88f1fc1c74cfebd, type: 2}
+    - target: {fileID: -6420621928468651580, guid: 2cb2cb7fb2603a5418acedb67b223dd5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 103
+      objectReference: {fileID: 0}
+    - target: {fileID: -6420621928468651580, guid: 2cb2cb7fb2603a5418acedb67b223dd5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 351
+      objectReference: {fileID: 0}
     - target: {fileID: -3162728411257897791, guid: 2cb2cb7fb2603a5418acedb67b223dd5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2878,7 +2886,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 23003510ae3aeb84e88f1fc1c74cfebd, type: 2}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -6544207043104339812, guid: 2cb2cb7fb2603a5418acedb67b223dd5, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1889359195956018541, guid: 2cb2cb7fb2603a5418acedb67b223dd5, type: 3}
       insertIndex: -1
