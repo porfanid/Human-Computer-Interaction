@@ -130,8 +130,8 @@ public class NewBehaviourScript : MonoBehaviour
         float moveDistance = moveSpeed * Time.deltaTime;
 
         // Check if movement is possible
-        float playerRadius = 2.5f;
-        float playerHeight = 2f;
+        float playerRadius = 5f;
+        float playerHeight = 4f;
         bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDir, moveDistance);
 
         // If movement is not possible in the desired direction, try to move only along X or Z axis
