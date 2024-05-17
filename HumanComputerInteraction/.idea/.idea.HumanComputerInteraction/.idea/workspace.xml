@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61f95ec5-5d48-4566-bcd1-10449a8d3273" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.HumanComputerInteraction/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HumanComputerInteraction/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Museum.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Museum.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +99,7 @@
       <workItem from="1715614590400" duration="4108000" />
       <workItem from="1715687218657" duration="71000" />
       <workItem from="1715691999413" duration="12213000" />
-      <workItem from="1715898350341" duration="380000" />
+      <workItem from="1715898350341" duration="551000" />
     </task>
     <servers />
   </component>
