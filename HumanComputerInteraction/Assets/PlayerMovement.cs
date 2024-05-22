@@ -31,7 +31,6 @@ public class NewBehaviourScript : MonoBehaviour
     void OnMove(InputValue movementValue)
     {
         Vector2 movementVector = movementValue.Get<Vector2>();
-    
         // Get the forward direction based on the character's rotation
         Vector3 forward = transform.forward;
         forward.y = 0f; // Ensure no vertical movement
@@ -92,6 +91,10 @@ public class NewBehaviourScript : MonoBehaviour
     
     void OnLook(InputValue movementValue)
     {
+        if (!info.gameObject.activeSelf)
+        {
+            return;
+        }
         Vector2 movementVector = movementValue.Get<Vector2>();
         _rotateX = movementVector.x; 
         _rotateY = movementVector.y;
