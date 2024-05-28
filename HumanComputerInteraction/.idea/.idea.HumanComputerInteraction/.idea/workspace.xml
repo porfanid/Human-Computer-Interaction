@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="61f95ec5-5d48-4566-bcd1-10449a8d3273" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HumanComputerInteraction/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HumanComputerInteraction/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MuseumObjects/223/192.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MuseumObjects/223/192.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Museum.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Museum.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +18,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Item.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ItemCollection.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -102,6 +109,7 @@
       <workItem from="1715898350341" duration="551000" />
       <workItem from="1716371315901" duration="622000" />
       <workItem from="1716476148461" duration="137000" />
+      <workItem from="1716884046254" duration="4355000" />
     </task>
     <servers />
   </component>

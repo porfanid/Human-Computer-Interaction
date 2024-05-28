@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
 using Image = UnityEngine.UI.Image;
@@ -42,6 +43,7 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void OnFire()
     {
+        Debug.Log("On fire has been called");
         RaycastHit[] hits;
         Vector2 screenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
         Ray ray = camera.ScreenPointToRay(screenCenter);
@@ -82,6 +84,7 @@ public class NewBehaviourScript : MonoBehaviour
                 }
                 catch (KeyNotFoundException)
                 {
+                    Debug.Log(nearestObject.name);
                 }
             }
         }
@@ -109,8 +112,25 @@ public class NewBehaviourScript : MonoBehaviour
     void Start()
     {
         intel = new Dictionary<string, string>();
-        intel["Plane.091"] = "aaa";
-        intel["1571"] = "Εκμαγείο μαρμάρινης κεφαλής της θεάς Ήρας. \nΆργος, γύρω στο 420 π.Χ.\n\nΉρα, θεά του γάμου, της έντιμης γυναίκας, της μητέρας και της γέννας. Προστάτης των εγγάμων γυναικών και της οικογένειας.\nΠερισσότερο από όλους τους άλλους θεούς η θεά Ήρα μας θυμίζει ότι μέσα μας υπάρχουν πάντα και οι δύο πλευρές, η φωτεινή και η \nσκοτεινή, συνδεδεμένες όπως και η χαρά και ο πόνος πλήρως με την ζωή. Η Ήρα αντιπροσωπεύει μια ολοκληρωμένη ζωή. Παρά τις \nσυχνά αντίξοες συνθήκες του γάμου της, επιβεβαιώνει ότι μόνο η φρόνηση και η σύνεση είναι αυτές που μας επιτρέπουν να επιτύχουμε \nτους στόχους που έχουμε επιλέξει και έτσι να κρατήσουμε τον γάμο και την οικογένειά μας ενωμένους.\n\nΕ.Α.Μ. αρ. 1571. Δωρεά: Π. & Ε. Αγγελοπούλου, βάση Ν. Μπούντα.\n\n\nCast replica of a marble head of the Goddess Hera (Juno). \nArgos, c. 420 В.С.\n\nGoddess of marriage, motherhood and birth. Protectress of married women and family. More than any of the other Greek Goddesses, \nthe Goddess Hera reminds us that there is both light and dark within each of us and that joy and pain are inextricably linked in \nlife. The Greek Goddess Hera represents the fullness of life and affirms that we can use our own wisdam in the pursuit of any goal we choose\n\nΝ.Α.Μ. no 1571 Donation P & H Angelopoulos, pillar N. Bouda";
+        // Determine the file path
+        string filePath = Path.Combine(Application.dataPath, "ekth.json");
+
+        // Read the JSON file
+        string jsonString = File.ReadAllText(filePath);
+        Debug.Log("JSON Content: " + jsonString);
+
+        // Parse the JSON data
+        ItemCollection itemCollection = JsonUtility.FromJson<ItemCollection>(jsonString);
+
+        // Convert to dictionary
+        Dictionary<string, Item> itemDict = itemCollection.ToDictionary();
+        Debug.Log("Read the data");
+
+        // Print the parsed data
+        foreach (var item in itemDict)
+        {
+            intel[item.Key] = item.Value.title + "\n" + item.Value.info;
+        }
     }
     
     private void HandleMovement(Vector2 inputVector) {
@@ -174,5 +194,28 @@ public class NewBehaviourScript : MonoBehaviour
         float playerHeight = 0.3f;
         
         HandleMovement(_movement);
+    }
+    
+    [System.Serializable]
+    public class KeyValuePair
+    {
+        public string key;
+        public Item value;
+    }
+    
+    [System.Serializable]
+    public class ItemCollection
+    {
+        public List<KeyValuePair> items;
+
+        public Dictionary<string, Item> ToDictionary()
+        {
+            Dictionary<string, Item> dict = new Dictionary<string, Item>();
+            foreach (var kvp in items)
+            {
+                dict[kvp.key] = kvp.value;
+            }
+            return dict;
+        }
     }
 }
