@@ -43,7 +43,7 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void OnFire()
     {
-        Debug.Log("On fire has been called");
+        
         RaycastHit[] hits;
         Vector2 screenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
         Ray ray = camera.ScreenPointToRay(screenCenter);
@@ -86,6 +86,10 @@ public class NewBehaviourScript : MonoBehaviour
                 {
                     Debug.Log(nearestObject.name);
                 }
+            }
+            else
+            {
+                Debug.Log("THe object is null");
             }
         }
     }
