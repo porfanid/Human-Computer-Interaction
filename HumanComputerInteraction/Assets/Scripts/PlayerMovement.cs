@@ -43,7 +43,6 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void OnFire()
     {
-        
         RaycastHit[] hits;
         Vector2 screenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
         Ray ray = camera.ScreenPointToRay(screenCenter);
@@ -84,12 +83,7 @@ public class NewBehaviourScript : MonoBehaviour
                 }
                 catch (KeyNotFoundException)
                 {
-                    Debug.Log(nearestObject.name);
                 }
-            }
-            else
-            {
-                Debug.Log("THe object is null");
             }
         }
     }
@@ -135,6 +129,7 @@ public class NewBehaviourScript : MonoBehaviour
         {
             intel[item.Key] = item.Value.title + "\n" + item.Value.info;
         }
+        intel["Plane.091"] = "<sprite=0>";
     }
     
     private void HandleMovement(Vector2 inputVector) {
@@ -199,7 +194,6 @@ public class NewBehaviourScript : MonoBehaviour
         
         HandleMovement(_movement);
     }
-    
     [System.Serializable]
     public class KeyValuePair
     {
