@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using System.IO;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
 using Image = UnityEngine.UI.Image;
@@ -27,6 +28,13 @@ public class NewBehaviourScript : MonoBehaviour
     private float _rotateY;
     private float _xRotation = 0f;
     private Dictionary<string, string> intel;
+    
+    
+    public Camera modelCamera; // Η κάμερα που θα προβάλλει το μοντέλο
+    public GameObject modelToShow; // Το αντικείμενο που θα εμφανίζεται στο RenderTexture
+    public RawImage rawImage; // Το UI στοιχείο που θα εμφανίζει το RenderTexture
+    public Canvas canvas; // Το Canvas που περιέχει το RawImage
+    private GameObject currentModelInstance;
     
     void OnMove(InputValue movementValue)
     {
@@ -72,6 +80,21 @@ public class NewBehaviourScript : MonoBehaviour
             {
                 try
                 {
+                    
+                    RaycastHit hit;
+
+                    if (Physics.Raycast(ray, out hit))
+                    {
+                        // Αν το αντικείμενο που χτυπήθηκε είναι το ίδιο με το τρέχον αντικείμενο, εμφανίζουμε το μοντέλο
+                        if (hit.transform == transform)
+                        {
+                            ShowModel(hit.transform.gameObject);
+                        }
+                    }
+                    Debug.Log("Entered show model");
+                    
+                    ShowModel(nearestObject.transform.gameObject);
+                    
                     // Set the information text from the dictionary
                     info.SetText(intel[nearestObject.name]);
                     StopCamera();
@@ -85,6 +108,24 @@ public class NewBehaviourScript : MonoBehaviour
                 }
             }
         }
+    }
+    
+    void ShowModel(GameObject selectedModel)
+    {
+        Debug.Log("test15");
+        // Καταστρέφουμε το προηγούμενο instance του μοντέλου αν υπάρχει
+        if (currentModelInstance != null)
+        {
+            Destroy(currentModelInstance);
+        }
+        // Εμφανίζουμε το Canvas
+        canvas.gameObject.SetActive(true);
+        // Δημιουργούμε το instance του μοντέλου και το τοποθετούμε μπροστά από την κάμερα
+        currentModelInstance = Instantiate(selectedModel, new Vector3(-4,-1,0), Quaternion.Euler(0,180,0));
+        currentModelInstance.transform.localScale = new Vector3(1, 1, 1);
+        Display.displays[1].Activate();
+        // Ρυθμίζουμε την κάμερα να κοιτάζει το μοντέλο
+        //modelCamera.transform.LookAt(currentModelInstance.transform);
     }
 
     
