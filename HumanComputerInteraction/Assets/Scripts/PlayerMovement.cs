@@ -15,18 +15,17 @@ public class NewBehaviourScript : MonoBehaviour
     
     public float moveSpeed = 200f;   // Speed of camera movement
     public float mouseSensitivity = 1f; // Mouse sensitivity
-    
     public Image c;
 
     public Button button;
     public TMP_Text info;
     public Camera camera;
-
+    public bool isMoving = true;
     private Vector2 _movement;
 
     private float _rotateX;
     private float _rotateY;
-
+    private float _xRotation = 0f;
     private Dictionary<string, string> intel;
     
     void OnMove(InputValue movementValue)
@@ -71,11 +70,11 @@ public class NewBehaviourScript : MonoBehaviour
             // Check if a nearest object was found
             if (nearestObject != null)
             {
-
                 try
                 {
                     // Set the information text from the dictionary
                     info.SetText(intel[nearestObject.name]);
+                    StopCamera();
                     c.gameObject.SetActive(true);
                     button.gameObject.SetActive(true);
                     info.gameObject.SetActive(true);
@@ -88,21 +87,43 @@ public class NewBehaviourScript : MonoBehaviour
         }
     }
 
-
     
     void OnLook(InputValue movementValue)
     {
-        if (!info.gameObject.activeSelf)
+        // Ensure the gameObject is active
+        if (!gameObject.activeSelf)
         {
             return;
         }
-        Vector2 movementVector = movementValue.Get<Vector2>();
-        _rotateX = movementVector.x; 
-        _rotateY = movementVector.y;
-        // Calculate rotation amount based on input
-        float rotationAmount = _rotateX * mouseSensitivity * Time.fixedDeltaTime;
-        // Rotate the player around the y-axis
-        transform.Rotate(Vector3.up, rotationAmount);
+        if (isMoving)
+        {
+            Vector2 movementVector = movementValue.Get<Vector2>();
+            float _rotateX = movementVector.x;
+            float _rotateY = movementVector.y;
+
+            // Calculate rotation amount based on input
+            float rotationAmountY = _rotateX * mouseSensitivity * Time.fixedDeltaTime;
+            // Rotate the player around the y-axis (left and right)
+            transform.Rotate(Vector3.up, rotationAmountY);
+
+            // Calculate vertical rotation
+            float rotationAmountX = _rotateY * mouseSensitivity * Time.fixedDeltaTime;
+            _xRotation -= rotationAmountX;
+            _xRotation = Mathf.Clamp(_xRotation, -90f, 90f); // Limit vertical rotation to prevent over-rotation
+            // Apply vertical rotation to the camera (up and down)
+            GameObject.Find("Main Camera").transform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
+            Debug.Log("X Content: " + rotationAmountY );
+        }        
+    }
+
+    public void StopCamera()
+    {
+        isMoving = false;
+    }
+
+    public void StartCamera()
+    {
+        isMoving = true;
     }
 
     
@@ -129,7 +150,6 @@ public class NewBehaviourScript : MonoBehaviour
         {
             intel[item.Key] = item.Value.title + "\n" + item.Value.info;
         }
-        intel["Plane.091"] = "<sprite=0>";
     }
     
     private void HandleMovement(Vector2 inputVector) {
@@ -193,6 +213,9 @@ public class NewBehaviourScript : MonoBehaviour
         float playerHeight = 0.3f;
         
         HandleMovement(_movement);
+        if(!c.gameObject.active){
+            StartCamera();
+        }
     }
     [System.Serializable]
     public class KeyValuePair
