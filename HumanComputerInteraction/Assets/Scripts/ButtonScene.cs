@@ -16,6 +16,7 @@ public class ButtonScene : MonoBehaviour
     void changeScene()
     {
         Debug.Log("Hello World");
+        SceneManager.UnloadSceneAsync("Scenes/Menu");
         SceneManager.LoadScene("Scenes/Museum");
     }
 }
