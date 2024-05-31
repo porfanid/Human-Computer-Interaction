@@ -123,7 +123,8 @@ public class NewBehaviourScript : MonoBehaviour
         // Δημιουργούμε το instance του μοντέλου και το τοποθετούμε μπροστά από την κάμερα
         currentModelInstance = Instantiate(selectedModel, new Vector3(-4,-1,0), Quaternion.Euler(0,180,0));
         currentModelInstance.transform.localScale = new Vector3(1, 1, 1);
-        Display.displays[1].Activate();
+        camera.gameObject.SetActive(false);
+        modelCamera.gameObject.SetActive(true);
         // Ρυθμίζουμε την κάμερα να κοιτάζει το μοντέλο
         //modelCamera.transform.LookAt(currentModelInstance.transform);
     }
@@ -152,7 +153,7 @@ public class NewBehaviourScript : MonoBehaviour
             _xRotation -= rotationAmountX;
             _xRotation = Mathf.Clamp(_xRotation, -90f, 90f); // Limit vertical rotation to prevent over-rotation
             // Apply vertical rotation to the camera (up and down)
-            GameObject.Find("Main Camera").transform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
+            camera.transform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
             Debug.Log("X Content: " + rotationAmountY );
         }        
     }
