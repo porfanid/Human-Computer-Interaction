@@ -6,11 +6,11 @@
 
 **Copyright (c) 2025 by:**
 
-- **Pavlos Orfanidis**: Developer
-- **George Hatziligos**: Coordinator
-- **Alexandros Milonakis**: Developer
-- **Stathis Andreopoulos**: Developer
-
+- **Pavlos Orfanidis**
+- **George Hatziligos**
+- **Alexandros Milonakis**
+- **Stathis Andreopoulos**
+  
 **Project:** "Human Computer Interaction"
 
 **All Rights Reserved**
