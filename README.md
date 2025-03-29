@@ -1,5 +1,7 @@
 # Museum of Medicine Interactive Exhibit
 
+[![License](https://img.shields.io/badge/License-AAL-blue.svg)](https://opensource.org/license/aal)
+
 This repository contains the code for an interactive application developed as part of the Human-Computer Interaction course at the University of Ioannina. The application is designed to enhance visitor engagement at the Museum of the History of Medicine by providing interactive experiences related to the museum's exhibits.
 
 ## About the Museum
