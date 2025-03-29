@@ -1,19 +1,19 @@
-Attribution Assurance License
+# Attribution Assurance License (AAL)
 
-SPDX short identifier: AAL
+**SPDX Identifier:** AAL
 
-Image: Open Source Initiative Approved License
+**Image:** ![License](https://img.shields.io/badge/License-AAL-blue.svg)
 
-Copyright (c) 2025 by
+**Copyright (c) 2025 by:**
 
-Pavlos Orfanidis
-George Hatziligos
-Alexandros Milonakis
-Stathis Andreopoulos
+- **Pavlos Orfanidis**: Developer
+- **George Hatziligos**: Coordinator
+- **Alexandros Milonakis**: Developer
+- **Stathis Andreopoulos**: Developer
 
-"Enhancing Interactive Experiences in Medical Museums"
+**Project:** "Human Computer Interaction"
 
-All Rights Reserved
+**All Rights Reserved**
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
@@ -23,10 +23,12 @@ Redistribution and use in source and binary forms, with or without modification,
 
 3. **The end-user documentation included with the redistribution** must include the following acknowledgment:
 
-   "This product includes software developed by the team of 'Enhancing Interactive Experiences in Medical Museums'."
+   > "This product includes software developed by the team of 'Human Computer Interaction'."
 
    Alternatively, this acknowledgment may appear in the software itself, wherever such third-party acknowledgments normally appear.
 
 4. **Neither the names "Pavlos Orfanidis," "George Hatziligos," "Alexandros Milonakis," "Stathis Andreopoulos," nor the names of their contributors** may be used to endorse or promote products derived from this software without specific prior written permission.
+
+**Disclaimer:**
 
 THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
