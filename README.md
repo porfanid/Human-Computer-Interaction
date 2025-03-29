@@ -58,4 +58,4 @@ Special thanks to the Museum of the History of Medicine at the University of Ioa
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the ATTRIBUTION ASSURANCE LICENSE License. See the [LICENSE](LICENSE) file for details.
